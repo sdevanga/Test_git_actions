@@ -74,7 +74,7 @@ jobs:
           
       - name: Create fixes from static findings
         id: convert
-        uses: Veracode/veracode-fix@main
+        uses: veracode/veracode-fix@v1.0.1
         with:
           inputFile: results.json
           vid: ${{ secrets.VID }}
@@ -83,8 +83,9 @@ jobs:
           source_base_path_2: "WEB-INF:test/src/main/webapp/WEB-INF"
           language: java
           prComment: true
-          cwe: '117'
+          cwe: '89'
           DEBUG: true
-          fixType: single
+          fixType: batch
           files: changed
+          createPR: true
           
